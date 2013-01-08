@@ -1,0 +1,16 @@
+#header
+  #header-logo
+    %h1
+      = link_to 'Ferrotec集团网站', root_path
+  #header-info
+    #sub-nav
+      %ul
+        %li= link_to 'Ferrotec(中国)', '#'
+        %li= link_to 'Ferrotec(全球)', '#'
+        %li= link_to '联系我们', '#'
+        %li= link_to '网站地图', '#'
+        %li.last= link_to 'English', '#'
+    #site-search
+      = form_tag '/search', :method=>:get
+      = text_field_tag 'search'
+      = submit_tag '搜索'

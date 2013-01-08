@@ -1,0 +1,195 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+/*
+ * 全局设置
+ */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  a {
+    color:#000;
+    text-decoration:none;
+    &:hover {
+      color:#FF0000;
+    }
+  }
+}
+
+
+#container{
+  width: 780px;
+  margin: 0 auto;
+
+  #header{
+    /*
+     * logo的处理,将文字转为图片
+     */
+    #header-logo{
+      h1 a {
+        width: 188px;
+        height:60px;
+        display:block;
+        text-indent:-999px; /*把文字放下最下面*/
+        background:image-url('logo.jpg');
+        float:left;
+      }
+    }
+    padding-top:10px;
+    position:relative; /*定下当前的位置*/
+    #header-info{
+      float:right;
+      #sub-nav{
+        li {
+          display: inline;
+          padding: 0 6px 0 5px;
+          border-right: 1px solid black;
+          &.last {
+            border:none;
+            padding-right:0px;
+          }
+        }
+      }
+      #site-search {
+        padding-top:10px;
+        position:absolute; /*以父DIV为绝对位置*/
+        right:0px;         /*右对齐*/
+      }
+    }
+  } // end of header
+
+  #menu {
+    margin-top:-3px;
+    background:image-url('menubackground.jpg');
+    height:25px;
+    padding-left:25px;
+    .sf-menu {
+      line-height:25px;
+
+      li {
+        float:left;
+        position:relative;
+        &:hover{
+          visibility: inherit; /* fix IE7 'sticky bug' */
+
+          ul {
+            left: 0;
+            top:25px;
+            z-index:99;
+          }
+        }
+        ul {
+          position: absolute;
+          top:-999px;
+          width:100px;
+
+          li {
+            background:#FFF;
+            border: 1px solid black;
+            a {
+              color:#000;
+              &:hover{
+                color:red;
+                background:#999;
+              }
+            }
+          }
+        }
+
+        a {
+          color:#FFF;
+          display:block;
+          position:relative;
+          padding: 0px 36px;
+        }
+      }
+    }
+  }
+
+  /*
+   * 主要内容区
+   */
+  #content {
+    padding-top:10px;
+    h2{
+      color:#3B6F9F;
+      font-size:14px;
+      font-weight:bold;
+      line-height:35px;
+    }
+    .news{
+      float:left;
+      width:400px;
+      border-right:1px solid #CCC;
+      ul li{
+        width:380px;
+        border-bottom: 1px solid #CCC;
+        a {
+          color:#3B6F9F;
+          line-height:26px;
+          &:hover{
+            color:red;
+          }
+        }
+      }
+      li.more {
+        border:none;
+        a {
+          float:right;
+        }
+      }
+    }
+    .groups{
+      float:left;
+      width:140px;
+      padding-left:10px;
+      li{
+        color:#3B6F9F;
+        margin-left:10px;
+        list-style-type:disc;
+        line-height:28px;
+        a {
+          color:#3B6F9F;
+          &:hover{
+            color:red;
+          }
+        }
+      }
+    }
+    .other{
+      float:right;
+      .tech li{
+        line-height:18px;
+        a {
+          color:#3B6F9F;
+          &:hover{
+            color:red;
+          }
+        }
+      }
+    }
+  } /* end of content*/
+
+  #friend-link{
+    clear:both;
+    padding:10px 10px 5px;
+    text-align:center;
+    li {
+      display:inline;
+    }
+  }
+  #footer{
+    clear:both;
+    padding:5px 10px;
+    p{
+      text-align:center;
+      a {
+        margin-left:20px;
+      }
+    }
+  }
+}
