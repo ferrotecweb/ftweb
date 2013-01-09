@@ -63,31 +63,28 @@ body {
   } // end of header
 
   #menu {
-    margin-top:-3px;
+    margin-top:-3px;  /*不知为何，flash与菜单总是有点空隙，所以上提一下。怀疑是flash的问题*/
     background:image-url('menubackground.jpg');
     height:25px;
     padding-left:25px;
     .sf-menu {
       line-height:25px;
-
       li {
         float:left;
         position:relative;
-        &:hover{
+        &:hover, &.hover{ /* 这里是当hover时，显示下级菜单，这里只显示一级下拉菜单 */
           visibility: inherit; /* fix IE7 'sticky bug' */
-
           ul {
             left: 0;
-            top:25px;
-            z-index:99;
+            top:25px;     /* 因为主元素高25px */
+            z-index:99;   /* 带到最前面显示 */
           }
         }
-        ul {
+        ul { /* 没有hover时，将菜单移到看不见的地方去 */
           position: absolute;
           top:-999px;
           width:100px;
-
-          li {
+          li { /* 这里是菜单的显示设置 */
             background:#FFF;
             border: 1px solid black;
             a {
@@ -99,11 +96,10 @@ body {
             }
           }
         }
-
         a {
           color:#FFF;
-          display:block;
-          position:relative;
+          display:block;      /* 让本元素填充整个空间 */
+/*          position:relative; */
           padding: 0px 36px;
         }
       }

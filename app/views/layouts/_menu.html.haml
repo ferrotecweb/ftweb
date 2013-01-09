@@ -28,3 +28,13 @@
       = link_to 'menu5', '#'
     %li
       = link_to 'menu6', '#'
+:javascript
+  jQuery(function($){
+    if (jQuery.browser.msie && (jQuery.browser.version=="6.0") && !jQuery.support.style ){
+      jQuery('ul.sf-menu>li').hover(function(){
+        jQuery(this).addClass('hover');
+      },function(){
+        jQuery(this).removeClass('hover');
+      });
+    }
+  });
