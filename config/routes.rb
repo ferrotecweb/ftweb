@@ -1,5 +1,6 @@
 Ftweb::Application.routes.draw do
   root :to => "welcome#index"
+  match '/' => "welcome#index", :constraints => { :subdomain => /.*/ }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

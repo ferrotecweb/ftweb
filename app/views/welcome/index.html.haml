@@ -1,6 +1,6 @@
 #content
   .news
-    %h2 新闻中心
+    %h2= t("News-#{I18n.locale}")
     %ul
       %li= link_to '2013-01 新闻11111111111111111111111', '#'
       %li= link_to '2013-01 新闻11111111111111111111111', '#'
@@ -12,7 +12,7 @@
       %li= link_to '2013-01 新闻11111111111111111111111', '#'
       %li.more= link_to '更多 »', '#'
   .groups
-    %h2 集团成员
+    %h2= t("Group member")
     %ul
       %li= link_to '杭州大和热磁', '#'
       %li= link_to '杭州大和热磁', '#'
@@ -24,10 +24,10 @@
       %li= link_to '上海申和热磁', '#'
   .other
     .map
-      %h2 全球据点
+      %h2= t("Global Distribution")
       = image_tag "group.jpg"
     .tech
-      %h2 技术动态
+      %h2= t("Technology")
       %ul
         %li= link_to "【大和】 技术动态1", '#'
         %li= link_to "【大和】 技术动态2", '#'

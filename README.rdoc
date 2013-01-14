@@ -1,3 +1,13 @@
+== 新FT网站改造
+
+老的网站含了太多的硬编码，也没有充分利用rails的优点。在近期的修改过程中，发现修
+改越来越复杂。所以重新进行调整。
+
+== 测试说明
+
+因为使用子域名来设置语言（www 为默认语言（中文），en为英文），故本地测试时，需要
+在local端设置一下二个指向本地的域名，这里设置为www.loclhost.com 和 en.localhost.com
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
