@@ -3,9 +3,11 @@
 one:
   code: MyString
   default: false
+  link: MyString
   memo: MyString
 
 two:
   code: MyString
   default: false
+  link: MyString
   memo: MyString

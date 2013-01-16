@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def set_locale
-    if request.subdomain.downcase == "en"
-      I18n.locale = "en"
-    else
-      I18n.locale = "zh-CN"
+    # 初始化语言页,确保数据库的locale设置正确
+    if session['I18n'] == ""
+      session['I18n'] = Language.where(:link => request.url).first.code
     end
+    I18n.locale = session['I18n']
   end
 end
