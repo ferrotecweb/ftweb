@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title Ferrotec集团网站管理
+    = stylesheet_link_tag    "manager", :media => "all"
+    = javascript_include_tag "manager"
+    = csrf_meta_tags
+  %body
+    = yield

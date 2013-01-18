@@ -1,6 +1,10 @@
 Ftweb::Application.routes.draw do
   root :to => "welcome#index"
   match "locale/:id" => "welcome#set_language", :as => "set_language"
+
+  namespace :manager do
+    match "index" => "welcome#index"
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
