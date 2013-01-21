@@ -1,0 +1,16 @@
+.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container-fluid
+      = link_to 'Ferrotec集团网站后台管理', manager_index_path, :class=>'brand'
+      .nav-collapse.collapse
+        %p.navbar-text.pull-right
+          当前登录用户：
+          =link_to 'Admin', '#'
+        %ul.nav
+          %li.active
+            = link_to '首页', manager_index_path
+          %li
+            = link_to 'Link', '#'
+          %li
+            = link_to 'Link', '#'
+

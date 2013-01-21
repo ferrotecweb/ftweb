@@ -4,6 +4,8 @@ Ftweb::Application.routes.draw do
 
   namespace :manager do
     match "index" => "welcome#index"
+    resources :languages
+    resources :companies
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

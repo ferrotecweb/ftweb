@@ -6,4 +6,10 @@
     = javascript_include_tag "manager"
     = csrf_meta_tags
   %body
-    = yield
+    = render "layouts/manager_header"
+    .container-fluid
+      .row-fluid
+        .span3
+          = render "layouts/manager_sidebar"
+        .span9
+          = yield

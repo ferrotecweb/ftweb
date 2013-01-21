@@ -2,9 +2,18 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/reset";
 
-@import "compass/reset";
+* {
+  padding:0px;
+  margin:0px;
+}
 
+li {
+  list-style-type:none;
+}
 /*
  * 全局设置
  */
@@ -58,6 +67,19 @@ body {
         padding-top:10px;
         position:absolute; /*以父DIV为绝对位置*/
         right:0px;         /*右对齐*/
+
+        input{
+          line-height:20px;
+          height:20px;
+          padding: 0 8px;
+          margin:  0 0 0 8px;
+          border-radius:4px;
+          border:1px #999999 solid;
+
+          #search {
+            border: 1px solid #3B6F9F;
+          }
+        }
       }
     }
   } // end of header

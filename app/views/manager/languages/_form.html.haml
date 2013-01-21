@@ -1,0 +1,34 @@
+=# 因为rails的form_for会在html中直接加上class,所以只能在这里强行加上class
+= form_for [:manager, @lan], :html =>{:class=> 'form-horizontal'} do |f|
+  - if @lan.errors.any?
+    #errorExplanation
+      %h2= "#{@lan.errors.count}个错误"
+      %ul
+        - @lan.errors.full_messages.each do |msg|
+          %li= msg
+  .control-group
+    =f.label '代码'
+    .controls
+      =f.text_field :code
+
+  .control-group
+    =f.label '网址'
+    .controls
+      =f.text_field :link
+
+  .control-group
+    .controls
+      %label.checkbox
+        默认语言
+        =f.check_box :default
+      =#f.check_box (f.label :default)
+
+  .control-group
+    =f.label '说明'
+    .controls
+      =f.text_field :memo
+
+  .control-group
+    .controls
+      = f.submit
+

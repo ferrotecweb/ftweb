@@ -1,8 +1,21 @@
-.container {
-  border: 1px solid black;
-  width: 1170px;
-}
-
 @import "bootstrap";
 
+body {
+  padding:60px 0 40px 0;
 
+  .sidebar-nav {
+    padding:9px 0;
+  }
+}
+table {
+  @extend .table, .table-bordered, .table-striped, .table-condensed, .table-hover;
+}
+
+form.form-horizontal {
+  label {
+    @extend .control-label;
+  }
+  input[type="submit"] {
+    @extend .btn, .btn-primary;
+  }
+}
