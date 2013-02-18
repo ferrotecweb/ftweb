@@ -12,4 +12,35 @@ module ApplicationHelper
       "#{link_to 'English', set_language_path('en') }".html_safe
     end
   end
+
+  def display_menu
+    @menu = Category.order("sort").where("level < 2")
+    haml_tag :ul, :class=>'sf-menu' do
+      gen_main_menu(@menu)
+    end
+  end
+
+  def gen_main_menu(menus)
+    menus.each do |m|
+      if m.level == 0
+        haml_tag :li do
+          haml_concat "#{link_to m.title, '#'}"
+          gen_sub_menu(menus,m)
+        end
+      end
+    end
+  end
+
+  def gen_sub_menu(all_menus, parent_menu)
+    haml_tag :ul do
+      haml_tag :li do
+        all_menus.each do |m|
+          if m.parent_id == parent_menu.id
+            haml_concat "#{link_to m.title, '#'}"
+          end
+        end
+      end
+    end
+  end
+
 end

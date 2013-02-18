@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116130739) do
+ActiveRecord::Schema.define(:version => 20130217032153) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.integer  "company_id",  :default => 0
+    t.integer  "language_id", :default => 0
+    t.integer  "parent_id",   :default => 0
+    t.integer  "level",       :default => 0
+    t.integer  "sort",        :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -21,6 +33,18 @@ ActiveRecord::Schema.define(:version => 20130116130739) do
     t.integer  "language_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "contents", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "company_id"
+    t.integer  "language_id"
+    t.integer  "parent_id"
+    t.integer  "level"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "sort",        :default => 0
   end
 
   create_table "languages", :force => true do |t|

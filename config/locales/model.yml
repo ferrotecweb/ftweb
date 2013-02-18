@@ -1,0 +1,17 @@
+zh-CN:
+  activerecord:
+    models:
+      language: 语言
+      company: 公司
+    attributes:
+      language:
+        code: 代码
+        link: 网址
+        default: 默认
+        memo: 代码说明
+      company:
+        name: 简称
+        fullname: 全称
+        summary: 公司简介
+        url: 公司网址
+        language_id: 所属语言

@@ -1,0 +1,21 @@
+%section
+  .page-header
+    =link_to '新增公司', new_manager_company_path, :class=>'btn btn-success'
+  %table
+    %thead
+      %tr
+        %th ID
+        %th 简称
+        %th 全称
+        %th 语言
+        %th 操作
+    %tbody
+      - @companies.each do |com|
+        %tr
+          %td= com.id
+          %td= com.name
+          %td= com.fullname
+          %td= com.language.memo
+          %td
+            =link_to "<i class='icon-pencil'></i>".html_safe, edit_manager_company_path(com), :class=> 'btn btn-mini btn-info'
+            =link_to "<i class='icon-remove'></i>".html_safe, manager_company_path(com), :confirm=>"是否确认删除#{com.name}?", :method => :delete, :class=> 'btn btn-mini btn-danger'

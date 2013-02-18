@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  summary: MyString
+  company_id: 1
+  language_id: 1
+  parent_id: 1
+  level: 1
+  sort: 1
+
+two:
+  title: MyString
+  summary: MyString
+  company_id: 1
+  language_id: 1
+  parent_id: 1
+  level: 1
+  sort: 1

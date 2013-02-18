@@ -1,5 +1,8 @@
 .well.sidebar-nav
   %ul.nav.nav-list
     %li.nav-header 基础设置
-    %li.active= link_to '语言设置', manager_languages_path
-    %li= link_to '公司设置', manager_companies_path
+    %li{:class=>"#{'active' if self.controller_name=='welcome'}"}=link_to '后台首页', manager_index_path
+    %li{:class=>"#{'active' if self.controller_name=='languages'}"}=link_to '语言', manager_languages_path
+    %li{:class=>"#{'active' if self.controller_name=='companies'}"}=link_to '公司', manager_companies_path
+    %li{:class=>"#{'active' if self.controller_name=='categories'}"}=link_to '目录', manager_categories_path
+    %li{:class=>"#{'active' if self.controller_name=='contents'}"}=link_to '内容', manager_contents_path

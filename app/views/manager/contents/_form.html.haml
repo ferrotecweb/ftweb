@@ -1,0 +1,32 @@
+= form_for [:manager, @content] do |f|
+
+  .control-group
+    = f.label '标题'
+    .controls
+      = f.text_field :title
+
+  .control-group
+    = f.label '所属语言'
+    .controls
+      = f.select :language_id, Language.all.collect{|l| [l.memo, l.id]}
+
+  .control-group
+    = f.label '所属公司'
+    .controls
+      = f.select :company_id, Company.all.collect{|l| [l.name, l.id]}
+
+  .control-group
+    = f.label '上级栏目'
+    .controls
+      = f.select :parent_id, Content.all.collect{|l| [l.title, l.id]}, {:include_blank => true}
+
+  .control-group
+    = f.label '内容'
+    .controls
+      = f.text_area :content, :size => '4x10', :class=> 'span10'
+
+  .control-group
+    .controls
+      = f.submit
+
+= javascript_include_tag "manager/contents"

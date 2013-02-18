@@ -6,6 +6,22 @@ Ftweb::Application.routes.draw do
     match "index" => "welcome#index"
     resources :languages
     resources :companies
+    resources :categories do 
+      member do
+        get 'insert'
+      end
+      collection do
+        post 'bat_del'  # 批量删除
+      end
+    end
+    resources :contents do 
+      member do
+        get 'insert'
+      end
+      collection do
+        post 'bat_del'  # 批量删除
+      end
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

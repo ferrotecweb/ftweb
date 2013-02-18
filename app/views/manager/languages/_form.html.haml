@@ -1,32 +1,40 @@
-=# 因为rails的form_for会在html中直接加上class,所以只能在这里强行加上class
-= form_for [:manager, @lan], :html =>{:class=> 'form-horizontal'} do |f|
-  - if @lan.errors.any?
-    #errorExplanation
-      %h2= "#{@lan.errors.count}个错误"
-      %ul
-        - @lan.errors.full_messages.each do |msg|
-          %li= msg
-  .control-group
-    =f.label '代码'
+= form_for [:manager, @lan] do |f|
+
+  .control-group{:class=>"#{'error' unless @lan.errors[:code].empty?}"}
+    =f.label :code
     .controls
       =f.text_field :code
+      %span
+        - if @lan.errors[:code].empty?
+          可以参看<a href="https://github.com/svenfuchs/rails-i18n">这里</a>
+        - else
+          =@lan.errors[:code]
 
-  .control-group
-    =f.label '网址'
+  .control-group{:class=>"#{'error' unless @lan.errors[:link].empty?}"}
+    =f.label :link
     .controls
       =f.text_field :link
+      %span
+        - if @lan.errors[:link].empty?
+          须以http://开头， 后面的/不能少
+        - else
+          =@lan.errors[:link]
 
-  .control-group
+  .control-group{:class=>"#{'error' unless @lan.errors[:default].empty?}"}
     .controls
       %label.checkbox
-        默认语言
         =f.check_box :default
-      =#f.check_box (f.label :default)
+        %span 默认语言,只能有一个
 
-  .control-group
-    =f.label '说明'
+  .control-group{:class=>"#{'error' unless @lan.errors[:memo].empty?}"}
+    =f.label :memo
     .controls
       =f.text_field :memo
+      %span
+        - if @lan.errors[:memo].empty?
+          该代码的中文说明
+        - else
+          =@lan.errors[:memo]
 
   .control-group
     .controls

@@ -12,4 +12,9 @@
         .span3
           = render "layouts/manager_sidebar"
         .span9
+          - # 加入提示
+          - if notice
+            .alert.alert-success
+              %button.close(data-dismiss="alert"){:type=>"button"} x
+              %strong= notice
           = yield

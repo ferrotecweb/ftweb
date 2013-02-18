@@ -1,0 +1,32 @@
+= form_for [:manager, @com] do |f|
+
+  .control-group
+    =f.label :name
+    .controls
+      =f.text_field :name
+
+
+  .control-group
+    =f.label :fullname
+    .controls
+      =f.text_field :fullname, :class => 'span10'
+
+  -#
+    .control-group
+      =f.label :url
+      .controls
+        =f.text_field :url
+
+  .control-group
+    =f.label '语言'
+    .controls
+      =f.select :language_id, Language.all.collect{|l| [l.memo, l.id]}
+
+  .control-group
+    =f.label :summary
+    .controls
+      =f.text_area :summary, :class=>'span10', :size => '4x10'
+
+  .control-group
+    .controls
+      = f.submit

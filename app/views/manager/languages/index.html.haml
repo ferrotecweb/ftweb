@@ -1,6 +1,6 @@
 %section
   .page-header
-    %h2 语言列表
+    =link_to '新增语言', new_manager_language_path, :class=>'btn btn-success'
   %table
     %thead
       %tr
@@ -9,9 +9,7 @@
         %th 对应网址
         %th 缺省
         %th 说明
-        %th 
-          操作
-          = link_to "<i class='icon-file'></i>".html_safe, new_manager_language_path
+        %th 操作
     %tbody
       - @languages.each do |lan|
         %tr
@@ -21,14 +19,5 @@
           %td= "<i class='icon-ok'></i>".html_safe if lan.default
           %td= lan.memo
           %td
-            =link_to "<i class='icon-edit'></i>".html_safe, edit_manager_language_path(lan)
-            =link_to "<i class='icon-remove'></i>".html_safe, manager_language_url(lan), :confirm=>"是否确认删除语言#{lan.memo}?", :method => :delete
-
-  %p 注意
-  %ul
-    %li 语言代码是有规律的，可以参看<a href="https://github.com/svenfuchs/rails-i18n">这里</a>
-    %li 默认语言只能有一个。
-    %li 本网站默认支持中英文二种语言（前台），后台为中文
-    %li 中文语言一般对应www开头 http://www.ferrotec.com.cn/
-    %li 英文对应en开头，比如 http://en.ferrotec.com.cn/
-    %li 前面的http:// 以及后面的 /不能少。
+            =link_to "<i class='icon-pencil'></i>".html_safe, edit_manager_language_path(lan), :class=>'btn btn-mini btn-info'
+            =link_to "<i class='icon-remove'></i>".html_safe, manager_language_path(lan), :confirm=>"是否确认删除语言#{lan.memo}?", :method => :delete, :class=>'btn btn-mini btn-danger'

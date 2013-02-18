@@ -1,0 +1,29 @@
+= form_tag bat_del_manager_categories_path do
+  %section
+    .page-header
+      =link_to '新增', new_manager_category_path
+      =submit_tag '删除'
+    %table
+      %thead
+        %tr
+          %th= check_box_tag "category_all"
+          %th ID
+          %th 排序
+          %th 名称
+          %th 所属公司
+          %th 语言
+          %th 操作
+      %tbody
+        - @categories.each do |category|
+          %tr
+            %td= check_box_tag "category_ids[]", category.id
+            %td= category.id
+            %td= category.sort
+            %td= ("&nbsp;"*(category.level*8)).html_safe + category.title
+            %td= category.company.name
+            %td= category.language.memo
+            %td
+              =link_to "<i class='icon-pencil'></i>".html_safe, edit_manager_category_path(category), :class=> 'btn btn-mini btn-info'
+              =link_to "<i class='icon-remove'></i>".html_safe, manager_category_path(category), :categoryfirm=>"是否确认删除#{category.title}?", :method => :delete, :class=> 'btn btn-mini btn-danger'
+              =link_to "<i class='icon-plus'></i>".html_safe, insert_manager_category_path(category), :class=> 'btn btn-mini btn-success'
+

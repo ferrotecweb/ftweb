@@ -1,0 +1,31 @@
+= form_tag bat_del_manager_contents_path do
+  %section
+    .page-header
+      =link_to '新增', new_manager_content_path
+      =submit_tag '删除'
+    %table
+      %thead
+        %tr
+          %th= check_box_tag "content_all"
+          %th ID
+          %th sord
+          %th 名称
+          %th 所属公司
+          %th 语言
+          %th 操作
+      %tbody
+        - @contents.each do |con|
+          %tr
+            %td= check_box_tag "content_ids[]", con.id
+            %td= con.id
+            %td= con.sort
+            %td= ("&nbsp;"*(con.level*8)).html_safe + con.title
+            %td= con.company.name
+            %td= con.language.memo
+            %td
+              =link_to "<i class='icon-pencil'></i>".html_safe, edit_manager_content_path(con), :class=> 'btn btn-mini btn-info'
+              =link_to "<i class='icon-remove'></i>".html_safe, manager_content_path(con), :confirm=>"是否确认删除#{con.title}?", :method => :delete, :class=> 'btn btn-mini btn-danger'
+              =link_to "<i class='icon-plus'></i>".html_safe, insert_manager_content_path(con), :class=> 'btn btn-mini btn-success'
+
+
+= javascript_include_tag "manager/contents"

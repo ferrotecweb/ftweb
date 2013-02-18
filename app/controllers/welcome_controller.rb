@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @subdomain = request.subdomain
+    @menu = Category.order("sort").where("level < 2")
   end
 
   def set_language

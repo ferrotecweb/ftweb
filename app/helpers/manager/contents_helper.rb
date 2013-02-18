@@ -1,0 +1,2 @@
+module Manager::ContentsHelper
+end
